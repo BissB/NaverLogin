@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이미디어 : 로그인</title>
+    <link rel="icon" href="./하이미디어_파비콘.ico.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function toggleSwitch(checkbox) {
+            var label = checkbox.parentElement;
+            var text = label.querySelector('.switch-text');
+            var handle = label.querySelector('.switch-handle');
+
+            if (checkbox.checked) {
+                // ON 상태
+                text.textContent = "ON";
+                text.style.color = "white";
+                text.style.transform = "translateY(-50%) translateX(0)";  // ON 상태에서 텍스트 오른쪽으로 이동
+                label.style.backgroundColor = "#28a745";  // 초록색 배경
+                handle.style.transform = "translateX(30px)";
+            } else {
+                // OFF 상태
+                text.textContent = "OFF";
+                text.style.color = "#333";
+                text.style.transform = "translateY(-50%) translateX(16px)";  // OFF 상태에서 텍스트 왼쪽에 배치
+                label.style.backgroundColor = "#ccc";  // 회색 배경
+                handle.style.transform = "translateX(0)";  // 흰 원을 왼쪽으로 이동
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- #03c75a 네이버 색 -->
+    <header>
+        <div class="form-group" style="padding: 15px; padding: 15px;">
+            <select style="float: right;" name="select1" id="sel1">
+                <option value="value1">한국어</option>
+                <option value="value2">English</option>
+                <option value="value3">中文(简体)</option>
+                <option value="value4">中文(台灣)</option>
+            </select>
+        </div>
+        <br>
+
+        <div>
+            <a href="https://www.himedia.co.kr/">
+                <img src="./네이버_로고.png"
+                    style="width: 155px; margin-top: 100px; display: block; margin-left: auto; margin-right: auto; padding-bottom: 20px;"
+                    class="d-block">
+            </a>
+        </div>
+    </header>
+
+
+    <div class="container" style="width: 368px; height: 300px; margin-bottom: 300px; ">
+        <div class="container" style="padding: 0px;">
+            <br>
+            <ul style="width: 368px; text-align: center; margin:auto; align-items: center; padding-right: 0px;"
+                class="container nav nav-tabs border-radius: 7px;" role="tablist">
+                <li class="nav-item" style="display: inline-block; width:33.3%; border-radius: 7px;">
+                    <a href="#home" data-toggle="tab" style="text-decoration: none; color:black"
+                        class="nav-link active">ID/전화번호</a>
+                </li>
+                <li class="nav-item border-radius: 7px;" style="width:33.3%">
+                    <a href="#menu1" data-toggle="tab" style="text-decoration: none; color:black" class="nav-link">일회용
+                        번호
+                    </a>
+                </li>
+                <li class="nav-item border-radius: 7px;" style="width:33.3%">
+                    <a href="#menu2" data-toggle="tab" style="text-decoration: none; color:black"
+                        class="nav-link">QR코드</a>
+                </li>
+            </ul>
+            <!-- Nav tabs -->
+
+            <div class="tab-content border"
+                style="border-radius: 7px; width: 368px; height: 220px; padding-left: 0px; padding-right: 0px;">
+                <div id="home" class="container tab-pane active">
+                    <br>
+                    <div class="container">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="아이디 또는 전화번호"
+                                    onfocus="this.style.borderColor='#28a745'; this.style.borderWidth='2px'; this.style.outline='none'; this.style.boxShadow='none';"
+                                    onblur="this.style.borderColor='#ccc'; this.style.borderWidth='1px'; this.style.boxShadow='none';">
+
+                                <input type="password" class="form-control" name="pwd" id="pwd" placeholder="비밀번호"
+                                    onfocus="this.style.borderColor='#28a745'; this.style.borderWidth='2px'; this.style.outline='none'; this.style.boxShadow='none';"
+                                    onblur="this.style.borderColor='#ccc'; this.style.borderWidth='1px'; this.style.boxShadow='none';">
+                            </div>
+
+
+
+                            <span style="text-align: left;" class="form-check">
+                                <label for="form-check-label">
+                                    <input type="checkbox" name="remember" class="form-check-input"> 로그인 상태 유지
+                                </label>
+
+                                <label style="float: right; text-align: right;" for="">
+                                    <label class="custom-control custom-switch"
+                                        style="position: relative; display: inline-block; width: 60px; height: 30px; padding: 5px; background-color: #ccc; border-radius: 30px; cursor: pointer; transition: background-color 0.3s ease;">
+                                        <input type="checkbox" class="custom-control-input" id="switch1" name="example"
+                                            style="display: none;" onchange="toggleSwitch(this)">
+
+                                        <!-- 텍스트 (고정 위치) -->
+                                        <span class="switch-text"
+                                            style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%) translateX(16px); font-size: 14px; color: #333; transition: color 0.3s ease;">
+                                            OFF
+                                        </span>
+
+                                        <!-- 움직이는 흰색 원 -->
+                                        <span class="switch-handle"
+                                            style="position: absolute; top: 5px; left: 5px; width: 20px; height: 20px; background-color: white; border-radius: 50%; transition: transform 0.3s ease;"></span>
+                                    </label>
+
+                                </label>
+                                <label style="float: right;" for="">
+                                    IP 보안 &nbsp;
+                                </label>
+                            </span>
+
+
+                            </span>
+
+                            <button style="background-color: #03c75a; color: white; font-weight: bold;" type="submit"
+                                class="btn container">로그인</button>
+                        </form>
+
+                        <p></p>
+                    </div>
+                </div>
+
+                <div id="menu1" class="container tab-pane" style="margin-bottom: 15px;">
+                    <br>
+                    <div style="text-align: center;">
+                        네이버앱의 <span style="color: #03c75a;"> 메뉴 > 설정 > 로그인 아이디 관리 >
+                            더보기 > 일회용 로그인 번호</span>에 보이는 번호를 입력해 주세요.
+                    </div>
+                    <br>
+                    <input type="email" class="form-control" name="email" id="email"
+                        style="margin-bottom: 5px; text-align: center;" placeholder="번호를 입력하세요"
+                        onfocus="this.style.borderColor='#28a745'; this.style.borderWidth='2px'; this.style.outline='none'; this.style.boxShadow='none';"
+                        onblur="this.style.borderColor='#ccc'; this.style.borderWidth='1px'; this.style.boxShadow='none';">
+                    <button style="background-color: #03c75a; color: white; font-weight: bold;" type="submit"
+                        class="btn container">로그인</button>
+
+                </div>
+
+                <div id="menu2" class="container tab-pane">
+                    <br>
+                    <span>
+                    <a href="https://www.himedia.co.kr/">
+                        <img src="./qr코드.png" style="display: block; margin: 0 auto; width: 100px; height: 100px;"
+                            alt="">
+                    </a>
+                    </span>
+
+                    <div style="text-align: center; ">
+                        <div style="font-size: 14px;">공용 네트워크, 공용 PC라면 안전을 위해
+                        </div>
+                        <div style="font-size: 14px;">
+                            QR코드로 로그인해주세요.
+                        </div>
+                        <div style="font-size: 12px; color: gray;">
+                            네이버 앱 > 렌즈 를 눌러 QR코드를 스캔하여
+                        </div>
+                        <div style="font-size: 12px; color: gray;">
+                            보이는 숫자 중 56를 선택하면 로그인 됩니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding-top: 20px;">
+            <span style=" text-decoration: none;">
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">비밀번호 찾기</a>
+            </span>
+            <span>
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style="text-decoration: none;" target="_blank" rel="noopener noreferrer">| 아이디 찾기</a>
+            </span>
+            <span>
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">| 회원가입</a>
+            </span>
+        </div>
+    </div>
+
+    <footer class="text-secondary font-weight-light" style="text-align: center;">
+        <div>
+            <!-- 발 -->
+            <span>
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                    이용약관
+                </a>
+                |
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                    <b>개인정보처리방식</b>
+                </a>
+                |
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                    책임의 한계와 법적고지
+                </a>
+                |
+                <a href="https://www.himedia.co.kr/" class="text-secondary font-weight-light"
+                    style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                    회원정보 고객센터
+                </a>
+            </span>
+        </div>
+        <div style="margin:auto; align-items: center;" class="copyright-wrap">
+            <span>
+                <a href="https://www.himedia.co.kr/">
+                    <img src="./네이버_로고.png" style="width: 70px;">
+                </a>
+                <span>
+                </span>
+                Copyright
+                <span style="color: black;"><strong>© NAVER Corp.</strong></span> All Rights
+                Reserved.</span>
+        </div>
+    </footer>
+
+    <a href="https://www.himedia.co.kr/">
+    </a>
+    <!-- style="margin:auto;" class="d-block" -->
+
+
+</body>
+
+</html>
